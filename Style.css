@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════
+   style.css — Form Laporan Barang Temuan
+   Responsif: Mobile-first + Desktop breakpoint
+   TANPA JavaScript
+   ═══════════════════════════════════════════ */
+
+/* ── RESET & BASE ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #E2EAED;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #2D2A29;
+}
+
+/* ══════════════════════════════
+   TOP BAR
+══════════════════════════════ */
+.topbar {
+  width: 100%;
+  background: #1D3970;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.topbar-menu span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #E3771C;
+  border-radius: 20px;
+}
+
+.topbar-title {
+  color: #FAFCF8;
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.topbar-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* ══════════════════════════════
+   PAGE WRAPPER
+══════════════════════════════ */
+.page-wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ══════════════════════════════
+   CARD
+══════════════════════════════ */
+.card {
+  background: #FAFCF8;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(29, 57, 112, 0.10);
+  overflow: hidden;
+}
+
+/* ══════════════════════════════
+   CARD HEADER
+══════════════════════════════ */
+.card-header {
+  background: #1D3970;
+  padding: 16px 20px;
+}
+
+.card-header h2 {
+  color: #FAFCF8;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.card-header p {
+  color: #CCE5FF;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════
+   ALERT
+══════════════════════════════ */
+.alert {
+  margin: 16px 20px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.alert-success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background: #fde8e8;
+  border: 1px solid #f5c6c6;
+  color: #7f1d1d;
+}
+
+.alert ul {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.alert ul li {
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════
+   FORM BODY — GRID RESPONSIF
+══════════════════════════════ */
+.form-body {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .form-body {
+    grid-template-columns: 1fr 1fr;
+  }
+  .field.full {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ══════════════════════════════
+   FIELD
+══════════════════════════════ */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2D2A29;
+}
+
+.field label .req {
+  color: #E3771C;
+  margin-left: 2px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="file"],
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 10px 14px;
+  background: #FAFCF8;
+  border: 1.5px solid #DCDDDD;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Manrope', sans-serif;
+  color: #2D2A29;
+  outline: none;
+  transition: border-color 0.18s;
+  appearance: none;
+}
+
+.field input[type="file"] {
+  padding: 8px 10px;
+  cursor: pointer;
+  background: #F7F9FC;
+  font-family: 'Inter', sans-serif;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: #1D3970;
+  box-shadow: 0 0 0 3px rgba(29, 57, 112, 0.08);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #BEBEBE;
+}
+
+/* ── SELECT ARROW ── */
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap select {
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #2D2A29;
+  pointer-events: none;
+}
+
+/* ── HINT ── */
+.field-hint {
+  font-size: 11px;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════
+   FORM FOOTER
+══════════════════════════════ */
+.form-footer {
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid #EFEFEF;
+}
+
+.btn-submit {
+  flex: 1;
+  min-width: 140px;
+  padding: 11px 20px;
+  background: #E3771C;
+  color: #FAFCF8;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.18s;
+  text-decoration: none;
+}
+
+.btn-submit:hover { background: #c9621a; }
+
+.btn-secondary {
+  flex: 1;
+  min-width: 100px;
+  padding: 11px 20px;
+  background: transparent;
+  color: #2D2A29;
+  border: 1.5px solid #AFAFB0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.btn-secondary:hover { background: #F0F0F0; }
+
+.btn-danger {
+  flex: 1;
+  min-width: 100px;
+  padding: 11px 20px;
+  background: transparent;
+  color: #c0392b;
+  border: 1.5px solid #e08080;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.btn-danger:hover { background: #fde8e8; }
+
+/* ══════════════════════════════
+   PREVIEW GRID
+══════════════════════════════ */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media (min-width: 480px) {
+  .preview-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 640px) {
+  .preview-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.preview-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid #DCDDDD;
+  background: #F5F5F5;
+}
+
+.preview-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-item .fname {
+  background: #1D3970;
+  color: #fff;
+  font-size: 9px;
+  padding: 3px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* ══════════════════════════════
+   RESULT TABLE (halaman hasil)
+══════════════════════════════ */
+.result-section {
+  margin-bottom: 20px;
+}
+
+.result-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1D3970;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E8E8E8;
+  margin-bottom: 12px;
+}
+
+.result-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.result-row:last-child { border-bottom: none; }
+
+.result-key {
+  color: #999;
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.result-val {
+  color: #2D2A29;
+  font-weight: 600;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* ══════════════════════════════
+   FILE ITEM (halaman hasil)
+══════════════════════════════ */
+.file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #F0F5FC;
+  border-radius: 8px;
+  border: 1px solid #D4E3F5;
+}
+
+.file-item .file-info { flex: 1; }
+
+.file-item .file-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1D3970;
+  word-break: break-all;
+}
+
+.file-item .file-meta {
+  color: #888;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.ext-badge {
+  font-size: 10px;
+  background: #E3771C;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
